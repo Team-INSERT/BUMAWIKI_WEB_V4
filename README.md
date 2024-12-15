@@ -1,3 +1,13 @@
+# Architecture
+
+## AS IS
+
+<img src="./projects/V3_ARCHITECTURE.png">
+
+## TO BE
+
+...
+
 # TODO (new feature)
 
 @5ewon @ubinquitous
