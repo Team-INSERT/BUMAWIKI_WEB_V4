@@ -6,7 +6,7 @@
 
 ## TO BE
 
-...
+<img src="./projects/V4_ARCHITECTURE.png">
 
 # TODO (new feature)
 
