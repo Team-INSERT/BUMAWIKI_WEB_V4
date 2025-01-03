@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/insert-proxy/:path*',
-        destination: 'https://buma.wiki/api/path*',
+        destination: 'https://buma.wiki/api/:path*',
         basePath: false,
       },
     ];
