@@ -2,11 +2,11 @@
 
 ## AS IS
 
-<img src="./projects/V3_ARCHITECTURE.png">
+<img src="./.projects/V3_ARCHITECTURE.png">
 
 ## TO BE
 
-<img src="./projects/V4_ARCHITECTURE.png">
+<img src="./.projects/V4_ARCHITECTURE.png">
 
 # TODO (new feature)
 
