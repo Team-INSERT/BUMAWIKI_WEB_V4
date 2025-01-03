@@ -1,0 +1,52 @@
+name: Application Build
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_env:
+        type: choice
+        description: '배포 환경'
+        options:
+          - production
+        required: true
+  push:
+    branches:
+      - main
+    paths:
+      - 'app/**'
+      - 'src/**'
+env:
+  SERVICE_NAME: bumawiki
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.9.0
+
+      - name: Use NextJS Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ github.workspace }}/bumawiki/.next/cache
+          key: nextjs-bumawiki-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/finance/**.[jt]s', 'apps/finance/**.[jt]sx') }}
+          restore-keys: |
+            nextjs-bumawiki-${{ hashFiles('**/yarn.lock') }}-
+            nextjs-bumawiki-
+
+      - name: Set Package Manager
+        run: |
+          npm install -g pnpm
+          pnpm install
+
+      - name: Check Lint
+        run: pnpm lint
+
+      - name: Application Build
+        run: pnpm build
