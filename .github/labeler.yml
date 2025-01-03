@@ -1,0 +1,10 @@
+pages:
+  - changed-file:
+      - any-glob-to-any-file: 'app/**'
+shared:
+  - changed-files:
+      - any-glob-to-any-file: 'src/**'
+feature:
+  - head-branch: ['^feature', 'feature']
+release:
+  - head-branch: ['^release', 'release']
